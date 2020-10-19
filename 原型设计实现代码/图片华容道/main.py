@@ -1,3 +1,4 @@
+#coding:utf-8
 import sys
 import base64
 import json
@@ -12,6 +13,7 @@ from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt
 from PIL import Image
 from PIL import ImageChops
+# -*- coding:utf-8 -*-
 
 uuid = ""  # 此题目的标识，提交答案时使用
 ans = ""  # answer
@@ -758,13 +760,17 @@ class rulePage(QWidget):
         window_pale.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap("background.jpg")))
         self.setPalette(window_pale)
         self.center()
-        rule = "这是一组3*3的图片矩阵 玩家需要将这个矩阵恢复成它原来的样子"
+        rule = "    玩家可以通过 WSAD 键使空白块上下左右移动，最终使乱序图能恢复原状。\n" \
+               "玩家点击游戏界面，进入游戏登录界面，这时你可以为自己取个网名，\n" \
+               "输入名字后登陆游戏，点击Q键开始游戏，这时玩家就可以开始玩游戏啦，\n当玩家不知道下一步怎么解时，" \
+               "可以点击Z键开启AI解题功能，每按一次E键，\n我们内置的AI算法会为玩家移动一步，" \
+               "直至完成游戏，完成游戏后，\n玩家的步数会被记录，最后显示在往次得分面板，供玩家查阅。"
         self.setWindowOpacity(0.9)  # 设置窗口透明度
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)  # 隐藏边框
         # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)  # 设置窗口背景透明
         self.label = QtWidgets.QLabel(self)
         # 设置标签的左边距，上边距，宽，高
-        self.label.setGeometry(QtCore.QRect(50, 50, 900, 900))
+        self.label.setGeometry(QtCore.QRect(10, 10, 900, 900))
         # 设置文本标签的字体和大小，粗细等
         self.label.setFont(QtGui.QFont("黑体", 15))
         self.label.setText(rule)
